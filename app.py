@@ -6,6 +6,7 @@ from openpyxl import Workbook
 
 
 #abrir Credenciais para acessar o linkedin
+''' Este trecho ficou desnecessário devido ao usuário se logar manualmente
 
 def read_credentials(file_path):
     with open(file_path,"r") as file:
@@ -20,6 +21,7 @@ def read_credentials(file_path):
 file_path_credentials = "credentials.txt"
 
 credentials = read_credentials(file_path_credentials)
+'''
 
 
 print("vamos começar a buscar suas vagas")
@@ -29,17 +31,21 @@ search = input("digite sua busca: ")
 # inicia o navegador
 browser = webdriver.Chrome()
 browser.get("https://www.linkedin.com/")
-sleep(2)
-email = browser.find_element(By.XPATH, "//input[@id='session_key']")
-password = browser.find_element(By.XPATH, "//input[@id='session_password']")
-btn_entrar = browser.find_element(By.XPATH, "//button[normalize-space(text())='Entrar']")
-sleep(2)
-email.send_keys(credentials['user'])
-sleep(2)
-password.send_keys(credentials['senha'])
-sleep(2)
-btn_entrar.click()
-input("resolva o enigma e volte aqui para pressionar ENTER")
+
+# Alterado para que o usuário faça o próprio login
+#
+#sleep(2)
+#email = browser.find_element(By.XPATH, "//input[@id='session_key']")
+#password = browser.find_element(By.XPATH, "//input[@id='session_password']")
+#btn_entrar = browser.find_element(By.XPATH, "//button[normalize-space(text())='Entrar']")
+#sleep(2)
+#email.send_keys(credentials['user'])
+#sleep(2)
+#password.send_keys(credentials['senha'])
+#sleep(2)
+#btn_entrar.click()
+
+input("Faça login e volte aqui para pressionar ENTER")
 sleep(5)
 browser.get("https://www.linkedin.com/jobs/")
 sleep(5)
